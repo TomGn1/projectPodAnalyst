@@ -12,11 +12,11 @@ def get_pod_infos(v1, name, namespace):
 
 def display(pod):
     print(
-        f"POD: {pod.metadata.name} \nNODE: {pod.spec.node_name} "
+        f"POD: {pod.metadata.name} \nNODE: {pod.spec.node_name} \nCONTAINER: "
         )
     for cs in pod.status.container_statuses:
         print(
-            f"CONTAINER: {cs.container_id}"
+            f" - {cs.container_id}"
         )
 
 def main():
