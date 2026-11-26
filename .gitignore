@@ -1,1 +1,6 @@
-.venv
+# Python
+python/.venv/
+python/__pycache__/
+
+# IDE
+go/*.code-workspace

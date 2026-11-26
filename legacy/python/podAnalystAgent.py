@@ -1,13 +1,20 @@
+# pyright: reportMissingImports=false
+
 import time
 import sys
 import argparse
 import json
 import yaml
 
-from kubernetes import config
-from kubernetes.client import V1DeleteOptions
-from kubernetes.client.api import core_v1_api
-from kubernetes.client.rest import ApiException
+try:
+    from kubernetes import config
+    from kubernetes.client import V1DeleteOptions
+    from kubernetes.client.api import core_v1_api
+    from kubernetes.client.rest import ApiException
+except ImportError as exc:
+    raise ImportError(
+        "The 'kubernetes' package is required. Install it with: pip install kubernetes"
+    ) from exc
 
 
 def parse_args():
